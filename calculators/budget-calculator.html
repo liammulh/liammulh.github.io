@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Budget Calculator</title>
+  </head>
+  <body>
+    <center>
+      <h1>Budget Calculator</h1>
+    </center>
+    <p>
+      <button onclick="reset()">Reset</button>
+    </p>
+    <div id="workArea">
+      <div class="income">
+        <label for="monthlyIncome">Monthly Income:</label>
+        <input id="monthlyIncome" />
+      </div>
+    </div>
+    <p>
+      <button onclick="done()">Done</button>
+    </p>
+  </body>
+  <style>
+    body {
+      font-family: "Courier New", Courier, monospace;
+      margin: 0 10%;
+    }
+  </style>
+  <script>
+    const addLabelAndInput = (
+      labelText,
+      inputId,
+      inputIdNumber,
+      className,
+      forAddingIncome
+    ) => {
+      // Add div for label and text.
+      const div = document.createElement("div");
+      div.className = className; // so that we can remove this later
+
+      // Add label and text.
+      const label = document.createElement("label");
+      const labelTextNode = document.createTextNode(labelText);
+      label.appendChild(labelTextNode);
+
+      // Add input.
+      const input = document.createElement("input");
+      if (forAddingIncome) {
+        input.id = inputId;
+      } else {
+        input.id = `${inputId}${inputIdNumber}`;
+      }
+
+      // Add label and input to the div.
+      div.appendChild(label);
+      div.appendChild(input);
+
+      // Add div to the work area.
+      const workArea = document.getElementById("workArea");
+      workArea.appendChild(div);
+    };
+
+    let monthlyIncome = 0; // this is reset in the done function
+    const addIncome = () => {
+      // number doesn't matter in this case
+      addLabelAndInput("Monthly Income: ", "monthlyIncome", 0, "income", true);
+    };
+
+    let numCategories = 0;
+    const addExpenseCategory = () => {
+      numCategories++;
+      addLabelAndInput(
+        "Expense category name: ",
+        "cat",
+        numCategories,
+        "expenseCategory",
+        false
+      );
+    };
+
+    const addExpenseCategoryButton = () => {
+      // Add button and text.
+      const button = document.createElement("button");
+      const buttonTextNode = document.createTextNode("Add Expense Category");
+      button.appendChild(buttonTextNode);
+
+      // Add class name to button so that it can be removed later.
+      button.className = "expenseCategory";
+
+      // Add button's function.
+      button.addEventListener("click", addExpenseCategory);
+
+      // Add button to the work area.
+      const workArea = document.getElementById("workArea");
+      workArea.appendChild(button);
+    };
+
+    let numPercentages = 0;
+    const expenseCategoryList = [];
+    const addExpensePercentages = () => {
+      for (let i = 1; i <= numCategories; i++) {
+        numPercentages++;
+        expenseCategory = document.getElementById(`cat${i}`);
+        const expenseCategoryName = expenseCategory.value;
+        expenseCategoryList.push(expenseCategoryName);
+        addLabelAndInput(
+          `Current/desired percentage for ${expenseCategoryName}: `,
+          "per",
+          numPercentages,
+          "expensePercentage",
+          false
+        );
+      }
+    };
+
+    const addCalculations = () => {
+      const div = document.createElement("div");
+      div.className = "calculations";
+      const listOfPercentages = [];
+      for (let i = 1; i <= numPercentages; i++) {
+        expensePercentage = document.getElementById(`per${i}`);
+        const expensePercentageAmount = expensePercentage.value;
+        listOfPercentages.push(parseInt(expensePercentageAmount));
+        const p = document.createElement("p");
+        // prettier-ignore
+        const text = document.createTextNode(`${expensePercentageAmount} percent of monthly income $${monthlyIncome} for ${expenseCategoryList[i - 1]} is $${(expensePercentageAmount/100)*monthlyIncome}.`);
+        p.appendChild(text);
+        div.appendChild(p);
+      }
+
+      const sumOfPercentagesP = document.createElement("p");
+      const sumOfPercentages = listOfPercentages.reduce(
+        (partialSum, p) => partialSum + p,
+        0
+      );
+
+      // prettier-ignore
+      const sumOfPercentagesText = document.createTextNode(`Sum of percentages is ${sumOfPercentages}.`);
+      sumOfPercentagesP.appendChild(sumOfPercentagesText);
+      div.appendChild(sumOfPercentagesP);
+
+      const discretionaryPercentageP = document.createElement("p");
+      const discretionaryPercentage = 100 - sumOfPercentages;
+      // prettier-ignore
+      const discretionaryPercentageText = document.createTextNode(`Discretionary income percentage is ${discretionaryPercentage} for a discretionary income of $${(discretionaryPercentage/100) * monthlyIncome}.`);
+      discretionaryPercentageP.appendChild(discretionaryPercentageText);
+      div.appendChild(discretionaryPercentageP);
+
+      const workArea = document.getElementById("workArea");
+      workArea.appendChild(div);
+    };
+
+    let numDone = 0;
+    const done = () => {
+      numDone++;
+      if (numDone === 1) {
+        const monthlyIncomeInput = document.getElementById("monthlyIncome");
+        if (monthlyIncomeInput.value === "") {
+          window.alert("Please enter monthly income.");
+          numDone = 0;
+        } else {
+          addExpenseCategoryButton();
+          monthlyIncome = monthlyIncomeInput.value;
+          removeIncome();
+        }
+      } else if (numDone === 2) {
+        addExpensePercentages();
+        removeExpenseCategories();
+      } else if (numDone === 3) {
+        addCalculations();
+        removeExpensePercentages();
+      } else if (numDone === 4) {
+        removeWork(".calculations");
+        resetConstants();
+        addIncome();
+      }
+    };
+
+    const resetConstants = () => {
+      numCategories = 0;
+      numPercentages = 0;
+      numDone = 0;
+      monthlyIncome = 0;
+    };
+
+    const reset = () => {
+      if (numDone === 0) {
+        // We haven't submitted our monthly income yet.
+        const monthlyIncomeInput = document.getElementById("monthlyIncome");
+        monthlyIncomeInput.value = "";
+      }
+      if (numDone === 1) {
+        // We're adding expense categories.
+        removeWork(".expenseCategory");
+        addIncome();
+      }
+      if (numDone === 2) {
+        // We're adding expense percentages.
+        removeWork(".expensePercentage");
+        addIncome();
+      }
+      if (numDone === 3) {
+        // We're adding calculations.
+        removeWork(".calculations");
+        addIncome();
+      }
+      resetConstants();
+    };
+
+    const removeWork = (className) => {
+      const work = document.querySelectorAll(className);
+      for (const workItem of work) {
+        workItem.remove();
+      }
+    };
+
+    const removeIncome = () => {
+      removeWork(".income");
+    };
+
+    const removeExpenseCategories = () => {
+      removeWork(".expenseCategory");
+    };
+
+    const removeExpensePercentages = () => {
+      removeWork(".expensePercentage");
+    };
+  </script>
+</html>

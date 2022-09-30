@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=k, initial-scale=1.0" />
+    <title>Binary Calculator</title>
+  </head>
+  <body>
+    <center>
+      <h1>Binary Calculator</h1>
+      <table>
+        <tr>
+          <th>Add 2^7?</th>
+          <th>Add 2^6?</th>
+          <th>Add 2^5?</th>
+          <th>Add 2^4?</th>
+          <th>Add 2^3?</th>
+          <th>Add 2^2?</th>
+          <th>Add 2^1?</th>
+          <th>Add 2^0?</th>
+        </tr>
+        <tr>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add7" />
+          </td>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add6" />
+          </td>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add5" />
+          </td>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add4" />
+          </td>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add3" />
+          </td>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add2" />
+          </td>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add1" />
+          </td>
+          <td>
+            <input type="checkbox" onchange="setValuesAndNumbers()" id="add0" />
+          </td>
+        </tr>
+        <tr>
+          <td id="add7Value">False</td>
+          <td id="add6Value">False</td>
+          <td id="add5Value">False</td>
+          <td id="add4Value">False</td>
+          <td id="add3Value">False</td>
+          <td id="add2Value">False</td>
+          <td id="add1Value">False</td>
+          <td id="add0Value">False</td>
+        </tr>
+        <tr>
+          <td id="add7Number">0</td>
+          <td id="add6Number">0</td>
+          <td id="add5Number">0</td>
+          <td id="add4Number">0</td>
+          <td id="add3Number">0</td>
+          <td id="add2Number">0</td>
+          <td id="add1Number">0</td>
+          <td id="add0Number">0</td>
+        </tr>
+      </table>
+      <p>
+        <button onclick="alertNumber()">Calculate</button>
+      </p>
+    </center>
+  </body>
+  <style>
+    body {
+      font-family: "Courier New", Courier, monospace;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    const getCheckboxes = () => {
+      const checkboxes = [];
+      for (let i = 0; i < 8; i++) {
+        checkboxes.push(document.getElementById(`add${i}`));
+      }
+      return checkboxes;
+    };
+
+    const setValuesAndNumbers = () => {
+      const checkboxes = getCheckboxes();
+      for (const checkbox of checkboxes) {
+        const value = document.getElementById(`${checkbox.id}Value`);
+        const number = document.getElementById(`${checkbox.id}Number`);
+        if (checkbox.checked) {
+          value.innerText = "True";
+          number.innerText = "1";
+        } else {
+          value.innerText = "False";
+          number.innerText = "0";
+        }
+      }
+    };
+
+    const calculateNumber = () => {
+      const checkboxes = getCheckboxes();
+      let number = 0;
+      for (const checkbox of checkboxes) {
+        // Figure out if number is 0 or 1.
+        const zeroOrOne = parseInt(
+          document.getElementById(`${checkbox.id}Number`).innerText
+        );
+
+        // checkbox.id is of the form addN.
+        // We're adding (zeroOrOne * 2^N) to number.
+        number += zeroOrOne * Math.pow(2, parseInt(checkbox.id[3]));
+      }
+      return number;
+    };
+
+    const alertNumber = () => {
+      window.alert(calculateNumber());
+    };
+  </script>
+</html>

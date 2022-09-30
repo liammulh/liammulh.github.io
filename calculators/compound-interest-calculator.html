@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Compound Interest Calculator</title>
+  </head>
+  <body>
+    <center>
+      <h1>Compound Interest Calculator</h1>
+
+      <q> Compound interest is the most powerful force in the universe. </q>
+      <p>- Albert Einstein</p>
+
+      <p>The formula for compound interest is A = P(1 + r/n)^(nt).</p>
+
+      <table>
+        <tr>
+          <th>Variable</th>
+          <th>Description</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>A</td>
+          <td>final amount in dollars</td>
+          <td>(Click the "Calculate" button.)</td>
+        </tr>
+        <tr>
+          <td>P</td>
+          <td>principal amount in dollars</td>
+          <td><input type="text" id="principal" /></td>
+        </tr>
+        <tr>
+          <td>r</td>
+          <td>interest rate as a decimal (i.e. 2 percent would be 0.02)</td>
+          <td><input type="text" id="interestRate" /></td>
+        </tr>
+        <tr>
+          <td>n</td>
+          <td>number of times interest is compounded per unit time (t)</td>
+          <td><input type="text" id="numberOfCompounds" /></td>
+        </tr>
+        <tr>
+          <td>t</td>
+          <td>the time in years (e.g. 10 for ten years)</td>
+          <td><input type="text" id="time" /></td>
+        </tr>
+      </table>
+
+      <p>
+        <button onclick="alertCompoundInterestInfo()">Calculate</button>
+      </p>
+    </center>
+  </body>
+
+  <style>
+    body {
+      font-family: "Courier New", Courier, monospace;
+    }
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+
+  <script>
+    const calculateCompoundInterest = (
+      principal,
+      interestRate,
+      numberOfCompounds,
+      time
+    ) => {
+      return (
+        principal *
+        Math.pow(1 + interestRate / numberOfCompounds, numberOfCompounds * time)
+      );
+    };
+
+    const makeInfoMessage = (time, principal, amount, interestRate) => {
+      // prettier-ignore
+      return `In ${time} years, your principal of $${principal} will be worth approximately $${Math.round(amount)} assuming an interest rate of ${interestRate}.\n\n`;
+    };
+
+    const getExtraInfo = (principal, interestRate, numberOfCompounds) => {
+      const extraInfoTimes = [5, 10, 15, 20, 25, 30];
+      const extraInfoAmounts = [];
+      let extraInfo = "";
+      for (const extraInfoTime of extraInfoTimes) {
+        const extraInfoAmount = calculateCompoundInterest(
+          principal,
+          interestRate,
+          numberOfCompounds,
+          extraInfoTime
+        );
+        extraInfoAmounts.push(extraInfoAmount);
+        extraInfo += makeInfoMessage(
+          extraInfoTime,
+          principal,
+          extraInfoAmount,
+          interestRate
+        );
+      }
+      return extraInfo;
+    };
+
+    const alertCompoundInterestInfo = () => {
+      // Get user input.
+      const principal = document.getElementById("principal").value;
+      const interestRate = document.getElementById("interestRate").value;
+      const numberOfCompounds =
+        document.getElementById("numberOfCompounds").value;
+      const time = document.getElementById("time").value;
+
+      // Calculate amount.
+      const amount = calculateCompoundInterest(
+        principal,
+        interestRate,
+        numberOfCompounds,
+        time
+      );
+
+      const info = makeInfoMessage(time, principal, amount, interestRate);
+
+      const extraInfo = getExtraInfo(
+        principal,
+        interestRate,
+        numberOfCompounds
+      );
+
+      window.alert("Calculation:\n\n" + info + "Extra Info:\n\n" + extraInfo);
+    };
+  </script>
+</html>
