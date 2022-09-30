@@ -75,8 +75,9 @@
     };
 
     const makeInfoMessage = (time, principal, amount, interestRate) => {
-      // prettier-ignore
-      return `In ${time} years, your principal of $${principal} will be worth approximately $${Math.round(amount)} assuming an interest rate of ${interestRate}.\n\n`;
+      return `In ${time} years, your principal of $${principal} will be worth approximately $${Math.round(
+        amount
+      )} assuming an interest rate of ${interestRate}.\n\n`;
     };
 
     const getExtraInfo = (principal, interestRate, numberOfCompounds) => {

@@ -10,7 +10,7 @@ a {
 }
 
 /* increase line-height for everything except headings */
-body :not(:is(h1,h2,h3,h4,h5,h6)) {
+body :not(:is(h1, h2, h3, h4, h5, h6)) {
   line-height: 1.75;
 }
 
@@ -29,7 +29,7 @@ html {
 
   /* use system font stack */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/font-family */
-  font-family: system-ui
+  font-family: system-ui;
 
   /* fluid sizing */
   /* https://frontaid.io/blog/fluid-typography-2d-css-locks-clamp/ */
@@ -40,5 +40,5 @@ html {
   max-width: 70ch;
 
   /* large screen = large pad, small screen = small pad */
-  padding: calc(1vmin + .5rem);
+  padding: calc(1vmin + 0.5rem);
 }

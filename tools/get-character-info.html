@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Get Character Info</title>
+  </head>
+  <body>
+    <h1>Get Character Info</h1>
+    <form>
+      <div>
+        <label for="character">Input Character:</label>
+      </div>
+      <div>
+        <input id="character" />
+      </div>
+      <div>
+        <button onclick="alertCharacterCode()">
+          Get UTF 16 Character Code
+        </button>
+      </div>
+    </form>
+    <h2>ASCII</h2>
+    <h3>0 - 31: Control Characters (Also 127)</h3>
+    <table>
+      <tr>
+        <th>Decimal</th>
+        <th>Hexadecimal</th>
+        <th>Octal</th>
+        <th>Character</th>
+        <th>Description</th>
+      </tr>
+      <tr>
+        <td>0</td>
+        <td>00</td>
+        <td>000</td>
+        <td>NUL</td>
+        <td>null</td>
+      </tr>
+    </table>
+  </body>
+
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+    }
+  </style>
+
+  <script>
+    const alertCharacterCode = () => {
+      const character = document.getElementById("character");
+      const utf16 = character.value.charCodeAt(0);
+      window.alert(
+        `UTF 16 character code of ${character.value[0]} is ${utf16}.`
+      );
+    };
+  </script>
+</html>

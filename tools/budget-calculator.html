@@ -32,7 +32,7 @@
     ) => {
       // Add div for label and text.
       const div = document.createElement("div");
-      div.className = className; // so that we can remove this later
+      div.className = className; // So that we can remove this later.
 
       // Add label and text.
       const label = document.createElement("label");
@@ -56,9 +56,9 @@
       workArea.appendChild(div);
     };
 
-    let monthlyIncome = 0; // this is reset in the done function
+    let monthlyIncome = 0; // This is reset in the done function.
     const addIncome = () => {
-      // number doesn't matter in this case
+      // Number doesn't matter in this case.
       addLabelAndInput("Monthly Income: ", "monthlyIncome", 0, "income", true);
     };
 
@@ -118,8 +118,11 @@
         const expensePercentageAmount = expensePercentage.value;
         listOfPercentages.push(parseInt(expensePercentageAmount));
         const p = document.createElement("p");
-        // prettier-ignore
-        const text = document.createTextNode(`${expensePercentageAmount} percent of monthly income $${monthlyIncome} for ${expenseCategoryList[i - 1]} is $${(expensePercentageAmount/100)*monthlyIncome}.`);
+        const text = document.createTextNode(
+          `${expensePercentageAmount} percent of monthly income $${monthlyIncome} for ${
+            expenseCategoryList[i - 1]
+          } is $${(expensePercentageAmount / 100) * monthlyIncome}.`
+        );
         p.appendChild(text);
         div.appendChild(p);
       }
@@ -130,15 +133,19 @@
         0
       );
 
-      // prettier-ignore
-      const sumOfPercentagesText = document.createTextNode(`Sum of percentages is ${sumOfPercentages}.`);
+      const sumOfPercentagesText = document.createTextNode(
+        `Sum of percentages is ${sumOfPercentages}.`
+      );
       sumOfPercentagesP.appendChild(sumOfPercentagesText);
       div.appendChild(sumOfPercentagesP);
 
       const discretionaryPercentageP = document.createElement("p");
       const discretionaryPercentage = 100 - sumOfPercentages;
-      // prettier-ignore
-      const discretionaryPercentageText = document.createTextNode(`Discretionary income percentage is ${discretionaryPercentage} for a discretionary income of $${(discretionaryPercentage/100) * monthlyIncome}.`);
+      const discretionaryPercentageText = document.createTextNode(
+        `Discretionary income percentage is ${discretionaryPercentage} for a discretionary income of $${
+          (discretionaryPercentage / 100) * monthlyIncome
+        }.`
+      );
       discretionaryPercentageP.appendChild(discretionaryPercentageText);
       div.appendChild(discretionaryPercentageP);
 
