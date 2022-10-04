@@ -1,32 +1,9 @@
-:root {
-  --accent-color-magenta: #af005f;
-  --accent-color-yellow: #af8700;
-  --background-color: #ffffd7;
-  --content-color: #4e4e4e;
-}
-
-a {
-  color: var(--accent-color-yellow);
-}
-
 /* increase line-height for everything except headings */
 body :not(:is(h1, h2, h3, h4, h5, h6)) {
   line-height: 1.75;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  color: var(--accent-color-magenta);
-}
-
 html {
-  color: var(--content-color);
-  background-color: var(--background-color);
-
   /* use system font stack */
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/font-family */
   font-family: system-ui;

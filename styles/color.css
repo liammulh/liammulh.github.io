@@ -1,0 +1,26 @@
+/* minimal color theme based on solarized light */
+
+:root {
+  --accent-color-blue: #0087ff;
+  --accent-color-green: #5f8700;
+  --background-color: #ffffd7;
+  --content-color: #4e4e4e;
+}
+
+a {
+  color: var(--accent-color-green);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--accent-color-blue);
+}
+
+html {
+  color: var(--content-color);
+  background-color: var(--background-color);
+}
