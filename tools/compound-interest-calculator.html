@@ -10,51 +10,49 @@
   <body>
     <a href="../index.html">Home</a> /
     <a href="./index.html">Tools</a>
-    <center>
-      <h1>Compound Interest Calculator</h1>
+    <h1>Compound Interest Calculator</h1>
 
-      <q> Compound interest is the most powerful force in the universe. </q>
-      <p>- Albert Einstein</p>
+    <q> Compound interest is the most powerful force in the universe. </q>
+    <p>- Albert Einstein</p>
 
-      <p>The formula for compound interest is A = P(1 + r/n)^(nt).</p>
+    <p>The formula for compound interest is A = P(1 + r/n)^(nt).</p>
 
-      <table>
-        <tr>
-          <th>Variable</th>
-          <th>Description</th>
-          <th>Value</th>
-        </tr>
-        <tr>
-          <td>A</td>
-          <td>final amount in dollars</td>
-          <td>(Click the "Calculate" button.)</td>
-        </tr>
-        <tr>
-          <td>P</td>
-          <td>principal amount in dollars</td>
-          <td><input type="text" id="principal" /></td>
-        </tr>
-        <tr>
-          <td>r</td>
-          <td>interest rate as a decimal (i.e. 2 percent would be 0.02)</td>
-          <td><input type="text" id="interestRate" /></td>
-        </tr>
-        <tr>
-          <td>n</td>
-          <td>number of times interest is compounded per unit time (t)</td>
-          <td><input type="text" id="numberOfCompounds" /></td>
-        </tr>
-        <tr>
-          <td>t</td>
-          <td>the time in years (e.g. 10 for ten years)</td>
-          <td><input type="text" id="time" /></td>
-        </tr>
-      </table>
+    <table>
+      <tr>
+        <th>Variable</th>
+        <th>Description</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>A</td>
+        <td>final amount in dollars</td>
+        <td>(Click the "Calculate" button.)</td>
+      </tr>
+      <tr>
+        <td>P</td>
+        <td>principal amount in dollars</td>
+        <td><input type="text" id="principal" /></td>
+      </tr>
+      <tr>
+        <td>r</td>
+        <td>interest rate as a decimal (i.e. 2 percent would be 0.02)</td>
+        <td><input type="text" id="interestRate" /></td>
+      </tr>
+      <tr>
+        <td>n</td>
+        <td>number of times interest is compounded per unit time (t)</td>
+        <td><input type="text" id="numberOfCompounds" /></td>
+      </tr>
+      <tr>
+        <td>t</td>
+        <td>the time in years (e.g. 10 for ten years)</td>
+        <td><input type="text" id="time" /></td>
+      </tr>
+    </table>
 
-      <p>
-        <button onclick="alertCompoundInterestInfo()">Calculate</button>
-      </p>
-    </center>
+    <p>
+      <button onclick="alertCompoundInterestInfo()">Calculate</button>
+    </p>
   </body>
 
   <style>

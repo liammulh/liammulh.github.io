@@ -10,70 +10,68 @@
   <body>
     <a href="../index.html">Home</a> /
     <a href="./index.html">Tools</a>
-    <center>
-      <h1>Binary Calculator</h1>
-      <table>
-        <tr>
-          <th>Add 2^7?</th>
-          <th>Add 2^6?</th>
-          <th>Add 2^5?</th>
-          <th>Add 2^4?</th>
-          <th>Add 2^3?</th>
-          <th>Add 2^2?</th>
-          <th>Add 2^1?</th>
-          <th>Add 2^0?</th>
-        </tr>
-        <tr>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add7" />
-          </td>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add6" />
-          </td>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add5" />
-          </td>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add4" />
-          </td>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add3" />
-          </td>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add2" />
-          </td>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add1" />
-          </td>
-          <td>
-            <input type="checkbox" onchange="setValuesAndNumbers()" id="add0" />
-          </td>
-        </tr>
-        <tr>
-          <td id="add7Value">False</td>
-          <td id="add6Value">False</td>
-          <td id="add5Value">False</td>
-          <td id="add4Value">False</td>
-          <td id="add3Value">False</td>
-          <td id="add2Value">False</td>
-          <td id="add1Value">False</td>
-          <td id="add0Value">False</td>
-        </tr>
-        <tr>
-          <td id="add7Number">0</td>
-          <td id="add6Number">0</td>
-          <td id="add5Number">0</td>
-          <td id="add4Number">0</td>
-          <td id="add3Number">0</td>
-          <td id="add2Number">0</td>
-          <td id="add1Number">0</td>
-          <td id="add0Number">0</td>
-        </tr>
-      </table>
-      <p>
-        <button onclick="alertNumber()">Calculate</button>
-      </p>
-    </center>
+    <h1>Binary Calculator</h1>
+    <table>
+      <tr>
+        <th>Add 2^7?</th>
+        <th>Add 2^6?</th>
+        <th>Add 2^5?</th>
+        <th>Add 2^4?</th>
+        <th>Add 2^3?</th>
+        <th>Add 2^2?</th>
+        <th>Add 2^1?</th>
+        <th>Add 2^0?</th>
+      </tr>
+      <tr>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add7" />
+        </td>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add6" />
+        </td>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add5" />
+        </td>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add4" />
+        </td>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add3" />
+        </td>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add2" />
+        </td>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add1" />
+        </td>
+        <td>
+          <input type="checkbox" onchange="setValuesAndNumbers()" id="add0" />
+        </td>
+      </tr>
+      <tr>
+        <td id="add7Value">False</td>
+        <td id="add6Value">False</td>
+        <td id="add5Value">False</td>
+        <td id="add4Value">False</td>
+        <td id="add3Value">False</td>
+        <td id="add2Value">False</td>
+        <td id="add1Value">False</td>
+        <td id="add0Value">False</td>
+      </tr>
+      <tr>
+        <td id="add7Number">0</td>
+        <td id="add6Number">0</td>
+        <td id="add5Number">0</td>
+        <td id="add4Number">0</td>
+        <td id="add3Number">0</td>
+        <td id="add2Number">0</td>
+        <td id="add1Number">0</td>
+        <td id="add0Number">0</td>
+      </tr>
+    </table>
+    <p>
+      <button onclick="alertNumber()">Calculate</button>
+    </p>
   </body>
   <style>
     table,
