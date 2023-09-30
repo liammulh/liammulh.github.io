@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>liammulh.github.io</title>
+  <subtitle>Liam Mulhall's blog on software engineering, computer science, mathematics, writing, and anything else that floats his boat</subtitle>
+  <id>tag:liammulh.github.io,2023-09-30:/</id>
+  <updated>2023-09-30</updated>
+  <link rel="alternate" type="text/html" href="https://liammulh.github.io/" />
+  <entry>
+    <author>
+      <name>Liam Mulhall</name>
+      <uri>https://www.liammulh.github.io/</uri>
+    </author>
+    <title>What is Backus-Naur form (BNF) and how is it used? What is the history behind it? What are the differences between BNF and its derivatives? This blog post attempts to answer these questions.</title>
+    <link>https://www.liammulh.github.io/guide-to-bnf.html</link>
+    <id>tag:liammulh.github.io,1970-01-01:/guide-to-bnf.html</id>
+    <updated>1970-01-01</updated>
+    <published>1970-01-01</published>
+    <category scheme="https://www.liammulh.github.io/guide-to-bnf.html" term="computer-science" />
+    <category scheme="https://www.liammulh.github.io/guide-to-bnf.html" term="programming-languages" />
+    <summary type="html">What is Backus-Naur form (BNF) and how is it used? What is the history behind it? What are the differences between BNF and its derivatives? This blog post attempts to answer these questions.</summary>
+  </entry>
+</feed>
