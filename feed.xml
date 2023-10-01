@@ -10,13 +10,13 @@
       <name>Liam Mulhall</name>
       <uri>https://www.liammulh.github.io/</uri>
     </author>
-    <title>What is Backus-Naur form (BNF) and how is it used? What is the history behind it? What are the differences between BNF and its derivatives? This blog post attempts to answer these questions.</title>
-    <link>https://www.liammulh.github.io/guide-to-bnf.html</link>
-    <id>tag:liammulh.github.io,1970-01-01:/guide-to-bnf.html</id>
+    <title>John Ousterhout, a computer science professor at Stanford and (amongst other things) creator of Tcl and Tk, wrote a book expounding his software design philosophy. I provide a brief overview of the book before I give my impressions and takeaways.</title>
+    <link>https://www.liammulh.github.io/a-philosophy-of-software-design-review.html</link>
+    <id>tag:liammulh.github.io,1970-01-01:/a-philosophy-of-software-design-review.html</id>
     <updated>1970-01-01</updated>
     <published>1970-01-01</published>
-    <category scheme="https://www.liammulh.github.io/guide-to-bnf.html" term="computer-science" />
-    <category scheme="https://www.liammulh.github.io/guide-to-bnf.html" term="programming-languages" />
-    <summary type="html">What is Backus-Naur form (BNF) and how is it used? What is the history behind it? What are the differences between BNF and its derivatives? This blog post attempts to answer these questions.</summary>
+    <category scheme="https://www.liammulh.github.io/a-philosophy-of-software-design-review.html" term="software-engineering" />
+    <category scheme="https://www.liammulh.github.io/a-philosophy-of-software-design-review.html" term="design" />
+    <summary type="html">John Ousterhout, a computer science professor at Stanford and (amongst other things) creator of Tcl and Tk, wrote a book expounding his software design philosophy. I provide a brief overview of the book before I give my impressions and takeaways.</summary>
   </entry>
 </feed>
