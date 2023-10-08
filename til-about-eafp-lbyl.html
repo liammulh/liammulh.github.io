@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liammulh.net | EAFP and LBYL</title>
+</head>
+<style>
+a {
+    color: blue;
+    text-decoration: none;
+}
+body {
+    background-color: #ffffff;
+    border: 0.1em solid black;
+    border-radius: 1em;
+    padding: 0 1em 1em; /* Top, left and right, bottom. */
+}
+html {
+    background-color: #ddeeff;
+    font-family: sans-serif;
+    font-size: 1.25em;
+    line-height: 1.25;
+    margin: auto;
+    max-width: 70ch;
+}
+</style>
+<body> 
+<h1>liammulh.net</h1>
+<nav>
+<a href="index.html">Home</a> | <a href="archive.html">Archive</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feed.xml">Feed</a>
+</nav>
+<hr/>
+<div><i>Easier to ask for forgiveness than permission (EAFP) and look before you leap (LBYL) are different approaches for dealing with error-prone code.</i></div>
+<hr/>
+<div>Published: Wednesday, October 4, 2023</div>
+<div>Tagged under: <a href="archive.html#python">python</a>, <a href="archive.html#software-engineering">software-engineering</a></div>
+<hr/>
+<p>
+I was skimming the Python glossary today and noticed the entry for the
+EAFP <a id="back1" href="#1">[1]</a> coding style. In the easier to ask
+for forgiveness than permission coding style, you assume an object has
+the right keys and you throw an error if it doesn't. This involves
+wrapping your assumption in try-except blocks. This style is common in
+the Python community, and it's contrasted with the LBYL
+<a id="back2" href="#2">[2]</a> coding style. In the look before you
+leap coding style, you explicitly test for pre-conditions before doing
+anything potentially dangerous. This involves adding lots of conditional
+statements to your code. The LBYL coding style is common in C. It also
+seems to be common in JavaScript, based on my experience. The Python
+glossary notes that in a multi-threaded environment, LBYL is potentially
+dangerous. One thread could be checking if a key is in an object, and
+another thread could have already deleted the key. This can be solved by
+using locks or by using the EAFP style.
+</p>
+
+<h2>References</h2>
+<ol>
+<li id="1"><a href="https://docs.python.org/3/glossary.html#term-EAFP">Python glossary entry on EAFP</a> | <a href="#back1">go back</a></li>
+<li id="2"><a href="https://docs.python.org/3/glossary.html#term-LBYL">Python glossary entry on LBYL</a> | <a href="#back2">go back</a></li>
+</ol>
+<a href="til-about-antigravity.html">next</a><hr/>
+<footer>
+<a href="#">top</a>
+</footer>
+</body>
+</html>

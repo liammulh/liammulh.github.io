@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liammulh.net | Mocks and stubs</title>
+</head>
+<style>
+a {
+    color: blue;
+    text-decoration: none;
+}
+body {
+    background-color: #ffffff;
+    border: 0.1em solid black;
+    border-radius: 1em;
+    padding: 0 1em 1em; /* Top, left and right, bottom. */
+}
+html {
+    background-color: #ddeeff;
+    font-family: sans-serif;
+    font-size: 1.25em;
+    line-height: 1.25;
+    margin: auto;
+    max-width: 70ch;
+}
+</style>
+<body> 
+<h1>liammulh.net</h1>
+<nav>
+<a href="index.html">Home</a> | <a href="archive.html">Archive</a> | <a href="about.html">About</a> | <a href="contact.html">Contact</a> | <a href="feed.xml">Feed</a>
+</nav>
+<hr/>
+<div><i>When it comes to writing automated tests for your code, there's a lot of jargon you need to wrap your head around. In this post I get to grips with some of that jargon.</i></div>
+<hr/>
+<div>Published: Thursday, October 5, 2023</div>
+<div>Tagged under: <a href="archive.html#testing">testing</a></div>
+<hr/>
+<p>
+Before we get into the difference between mocks and stubs, we need some
+context. If you want a TL;DR, jump <a href="#tldr">here</a>.
+</p>
+
+<p>
+I needed to test a function that gets data from an external API today,
+so I was googling on best practices for doing so. Tests are supposed to
+be deterministic and hermetic.
+</p>
+
+<p>
+A correctly-written test is deterministic if the test passes when the
+implementation of the system under test is correct
+<a id="backA" href="#A">(A)</a>,
+and the test fails when the implementation of the system under test is
+incorrect. If the implementation of the system under test is correct,
+and the test passes most of the time, but occasionally fails, it's not
+deterministic.  For example, suppose you have a test for correct code
+that gets data from an external API. Suppose the HTTP request for the
+data fails x percent of the time. Then your test fails x percent of the
+time, despite the code being correct. This test is not deterministic.
+</p>
+
+<p>
+Google's book on software engineering <a id="back1" href="#1">[1]</a>
+admonishes us to make tests hermetic:
+</p>
+
+<blockquote>
+All tests should strive to be hermetic: a test should contain all of the
+information necessary to set up, execute, and tear down its environment.
+Tests should assume as little as possible about the outside environment,
+such as the order in which the tests are run. For example, they should
+not rely on a shared database. This constraint becomes more challenging
+with larger tests, but effort should still be made to ensure isolation.
+</blockquote>
+
+<p>
+Webster's 1913 <a id="backB" href="#B">(B)</a> provides a definition of
+the word "hermetic" <a id="back2" href="#2">[2]</a>:
+</p>
+
+<blockquote>
+Made perfectly close or air-tight by fusion, so that no gas or spirit
+can enter or escape; as, an hermetic seal.
+</blockquote>
+
+<p>
+The entry on "hermetic" directs us to a note in the entry for
+"hermetically" <a id="back3" href="#3">[3]</a>:
+</p>
+
+<blockquote>
+A vessel or tube is hermetically sealed when it is closed completely
+against the passage of air or other fluid by fusing the extremity; --
+sometimes less properly applied to any air-tight closure.
+</blockquote>
+
+<p>
+If we test code that reaches out to an external API, our test probably
+won't be deterministic because the request could fail. Our test isn't
+hermetic because it relies on an external dependency, the API. How,
+then, do we test our code? We use a test double. A test double is
+something that stands in for the real thing. In this case, we will use
+a test double for our API request. There are different types of test
+doubles, according to Martin Fowler <a id="back4" href="#4">[4]</a>:
+</p>
+
+<blockquote>
+<ul>
+  <li>
+  Dummy objects are passed around but never actually used. Usually they
+are just used to fill parameter lists.
+  </li>
+  <li>
+  Fake objects actually have working implementations, but usually take
+some shortcut which makes them not suitable for production (an in-memory
+database is a good example).
+  </li>
+  <li>
+  Stubs provide canned answers to calls made during the test, usually
+not responding at all to anything outside what's programmed in for the
+test.
+  </li>
+  <li>
+  Spies are stubs that also record some information based on how they
+were called. One form of this might be an email service that records how
+many messages it was sent.
+  </li>
+  <li>
+  Mocks are what we are talking about here: objects pre-programmed with
+expectations which form a specification of the calls they are expected
+to receive.
+  </li>
+</ul>
+</blockquote>
+
+<p id="tldr">
+I will attempt to summarize my understanding of the difference between
+mocks and stubs based on my reading of [4]. Generally a stub is used for
+state testing, i.e. it tests whether a function returns the correct
+value. Generally a mock is used for behavior testing, i.e. whether a
+function took the correct steps. Mocking libraries like Python's
+unittest.mock provide utilities for testing whether the system under
+test took the correct steps.
+</p>
+
+<h2>Notes</h2>
+<ul>
+<li id="A">
+(A) A test doesn't really test whether the implementation of the system
+under test is correct. It tests whether it passes the test. Whether the
+test actually tests what it needs to test is a matter of how
+well-written the test is. A test should capture the requirements of the
+system under test. <a href="#backA">go back</a>
+</li>
+<li id="B">
+(B) Webster's 1913 edition is a fun dictionary to look up words in. Its
+definitions are often less dry than those of modern dictionaries. It
+provides literary example usages, synonyms, and historical and
+linguistic context you wouldn't otherwise find in a dictionary.
+<a href="#backB">go back</a> 
+</li>
+</ul>
+
+
+<h2>References</h2>
+<ol>
+<li id="1"><a href="https://abseil.io/resources/swe-book/html/toc.html">Google's book on software engineering</a> | <a href="#back1">go back</a></li>
+<li id="2"><a href="https://www.websters1913.com/words/Hermetic">Webster's 1913 entry on "Hermetic"</a> | <a href="#back2">go back</a></li>
+<li id="3"><a href="https://www.websters1913.com/words/Hermetically">Webster's 1913 entry on "Hermetically"</a> | <a href="#back3">go back</a></li>
+<li id="4"><a href="https://martinfowler.com/articles/mocksArentStubs.html">Martin Fowler's blog post on mocks and stubs</a> | <a href="#back4">go back</a></li>
+</ol>
+<a href="til-about-antigravity.html">previous</a><hr/>
+<footer>
+<a href="#">top</a>
+</footer>
+</body>
+</html>
