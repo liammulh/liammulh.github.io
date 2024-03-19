@@ -1,0 +1,49 @@
+/* Root variables in alphabetical order. */
+
+:root {
+    --clr-green: #5ebd3e;
+    --clr-yellow: #ffb900;
+    --clr-orange: #f78200;
+    --clr-red: #e23838;
+    --clr-purple: #973999;
+    --clr-blue: #009cdf;
+}
+
+/* IDs in alphabetical order. IDs should be camelCase. */
+
+#rainbowRule {
+    border: none;
+    height: 0.5em;
+    background-image: linear-gradient(
+        to right,
+        var(--clr-green) 0%,
+        var(--clr-green) 16.67%,
+        var(--clr-yellow) 16.67%,
+        var(--clr-yellow) 33.34%,
+        var(--clr-orange) 33.34%,
+        var(--clr-orange) 50%,
+        var(--clr-red) 50%,
+        var(--clr-red) 66.67%,
+        var(--clr-purple) 66.67%,
+        var(--clr-purple) 83.34%,
+        var(--clr-blue) 83.34%,
+        var(--clr-blue) 100%
+    );
+}
+
+/* Tags in alphabetical order. */
+
+a {
+    color: teal;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+html {
+    font-family: sans-serif;
+    font-size: 1.25em;
+    line-height: 1.25;
+    margin: auto;
+    max-width: 70ch;
+}

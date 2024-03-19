@@ -1,8 +1,10 @@
 {
     "scripts": {
-        "fmt": "prettier --write ."
+        "fmt": "prettier --write .",
+        "start": "eleventy --serve"
     },
     "devDependencies": {
+        "@11ty/eleventy": "^2.0.1",
         "prettier": "^3.2.5"
     }
 }
