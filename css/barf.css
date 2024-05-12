@@ -1,0 +1,42 @@
+/* Make HTML look reasonable on most screens. */
+.reasonable {
+    font-size: 1.25em;
+    line-height: 1.75;
+    margin: auto;
+    max-width: 70ch;
+    padding: 3em 1em;
+}
+
+/* Make links green. */
+a {
+    color: forestgreen;
+}
+
+/* Visited links should look the same as unvisited links. */
+a:visited {
+    color: forestgreen;
+}
+
+/* Show the top of an IBM 701 computer program punch card. */
+#punch-card-top {
+    background: url("../img/ibm-701-punch-card-top-800w.jpg") no-repeat center;
+    height: 100px;
+}
+
+/* Show the bottom of an IBM 701 computer program punch card. */
+#punch-card-bottom {
+    background: url("../img/ibm-701-punch-card-bottom-800w.jpg") no-repeat center;
+    height: 41px;
+}
+
+/* If screen isn't too narrow, float the picture of me to the right. */
+#liam {
+    float: right;
+}
+
+/* On small screens, don't float the picture of me to the right. */
+@media only screen and (max-width: 800px) {
+    #liam {
+        float: none;
+    }
+}
