@@ -7,14 +7,14 @@
     padding: 3em 1em;
 }
 
-/* Make links green. */
+/* Make link styling boring. */
 a {
-    color: forestgreen;
+    color: blue;
 }
 
 /* Visited links should look the same as unvisited links. */
 a:visited {
-    color: forestgreen;
+    color: blue;
 }
 
 /* Show the top of an IBM 701 computer program punch card. */
