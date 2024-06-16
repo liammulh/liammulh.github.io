@@ -1,0 +1,55 @@
+{
+  "basic-info": {
+    "name": "Liam Mulhall",
+    "phone": "+1 (720) 202-4562",
+    "email": "liammulh@gmail.com",
+    "location": "Palo Alto, CA"
+  },
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "employer": "Stanford University School of Medicine",
+      "location": "Stanford, CA",
+      "start": "May 2023",
+      "end": "present",
+      "responsibilities": [
+        "Developing a tool for researchers to curate information about human leukocyte antigens.",
+        "Rewriting and hardening legacy software.",
+        "Mentoring new software engineer."
+      ]
+    },
+    {
+      "title": "Software Engineer",
+      "employer": "PhET Interactive Simulations",
+      "location": "Boulder, CO",
+      "start": "May 2022",
+      "end": "May 2023",
+      "responsibilities": [
+        "Rewrote application for translating English language simulations into other natural languages."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "MS Computer Science",
+      "institution": "Georgia Institute of Technology",
+      "start": "2024",
+      "end": "present",
+      "notes": [
+        "Enrolled in part-time, online master's degree.",
+        "Taking Graduate Introduction to Operating Systems."
+      ]
+    },
+    {
+      "degree": "BA Mathematics, Minor Computer Science",
+      "institution": "University of Colorado Boulder",
+      "start": "2017",
+      "end": "2022",
+      "notes": [
+        "Focus on computational mathematics.",
+        "Minored in computer science.",
+        "Took Data Structures, Computer Systems, and Algorithms."
+      ]
+    }
+  ]
+}
