@@ -1,5 +1,6 @@
 /* Make HTML look reasonable on most screens. */
 .reasonable {
+    font-family: "Georgia", "Palatino", "Times", "Roman", serif;
     font-size: 1.25em;
     line-height: 1.75;
     margin: auto;
@@ -15,6 +16,20 @@ a {
 /* Visited links should look the same as unvisited links. */
 a:visited {
     color: blue;
+}
+
+/* An llvm.org-style heading. */
+.heading {
+    background: url("../img/lines.gif");
+    border-style: solid none solid none;
+    text-align: center;
+    width: 100%;
+}
+
+/* Optional text that goes underneath the heading. */
+.subheading {
+    font-size: 1em;
+    text-align: center;
 }
 
 /* Show the top of an IBM 701 computer program punch card. */
