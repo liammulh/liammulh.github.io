@@ -17,7 +17,7 @@ env = Environment(loader=PackageLoader("cv"), autoescape=select_autoescape())
 
 
 def read_json(filename: str) -> dict:
-    """Read JSON CV into a Python dictionary."""
+    """Read JSON into a Python dictionary."""
     with open(filename, encoding="utf-8") as json_file:
         return json.load(json_file)
 
