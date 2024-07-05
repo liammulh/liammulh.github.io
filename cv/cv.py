@@ -1,15 +1,24 @@
 """Spits out my resume in Markdown, HTML, and PDF."""
 
-# pylint: disable=consider-using-join
-# Thanks, Pylint. I considered it.
-
+# Built-in libraries:
 import json
-from string import Template
+
+# Third-party dependencies:
+from dotenv import load_dotenv
+from jinja2 import Environment, PackageLoader, select_autoescape
+from weasyprint import HTML  # type: ignore
+
+# Set environment variables.
+load_dotenv()
+
+# We ask Jinja (the templating library) to look for a templates
+# directory in the same directory as our cv.py Python module.
+env = Environment(loader=PackageLoader("cv"), autoescape=select_autoescape())
 
 
-def read_json() -> dict:
+def read_json(filename: str) -> dict:
     """Read JSON CV into a Python dictionary."""
-    with open("cv.json", encoding="utf-8") as json_file:
+    with open(filename, encoding="utf-8") as json_file:
         return json.load(json_file)
 
 
@@ -19,68 +28,29 @@ def write_file(filename: str, content: str):
         file.write(content)
 
 
-def to_markdown():
-    """Convert the JSON CV into Markdown."""
-    json_cv = read_json()
+def write_markdown():
+    """Convert the JSON CV into a Markdown file."""
+    cv = read_json("cv.json")
+    template = env.get_template("cv.md")
+    markdown = template.render(cv=cv)
+    write_file("cv.md", markdown)
 
-    # Add basic info.
-    # ==================================================================
-    basic_info = Template(
-        """# $name 
 
-- Phone: $phone
-- Email: $email
-- Location: $location
-"""
-    )
-    content = basic_info.substitute(json_cv["basic-info"])
+def write_html():
+    """Convert the JSON CV into an HTML file."""
+    cv = read_json("cv.json")
+    template = env.get_template("cv.html")
+    html = template.render(cv=cv)
+    write_file("cv.html", html)
 
-    # Add experience.
-    # ==================================================================
-    content += "\n"
-    content += "## Experience"
-    content += "\n"
-    for experience in json_cv["experience"]:
 
-        # Create responsibilities string for the experience.
-        responsibilities_string = ""
-        for responsibility in experience["responsibilities"]:
-            responsibilities_string += f"- {responsibility}\n"
-
-        experience_template = Template(
-            f"""### $title - $employer ($start-$end)
-
-*$location*
-
-{responsibilities_string}"""
-        )
-
-        content += "\n"
-        content += experience_template.substitute(experience)
-
-    # Add education.
-    # ==================================================================
-    content += "\n"
-    content += "## Education"
-    content += "\n"
-    for education in json_cv["education"]:
-
-        # Create notes string for the education.
-        notes_string = ""
-        for note in education["notes"]:
-            notes_string += f"- {note}\n"
-
-        education_template = Template(
-            f"""### $degree - $institution ($start-$end)
-
-{notes_string}"""
-        )
-
-        content += "\n"
-        content += education_template.substitute(education)
-
-    write_file("cv.md", content)
+def write_pdf():
+    """Convert the JSON CV into a PDF."""
+    write_html()
+    HTML("cv.html").write_pdf("cv.pdf")
 
 
 if __name__ == "__main__":
-    to_markdown()
+    write_markdown()
+    write_html()
+    write_pdf()

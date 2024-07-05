@@ -4,12 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
+jinja2 = "3.*"
+weasyprint = "*"
 
 [dev-packages]
 black = "24.*"
 invoke = "2.*"
 mypy = "1.*"
 pylint = "3.*"
+python-dotenv = "*"
 
 [requires]
 python_version = "3.12"
