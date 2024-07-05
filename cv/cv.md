@@ -1,6 +1,6 @@
 # Liam Mulhall
 
-+1 (720) 202-4562 | liammulh@gmail.com | Palo Alto, CA
++1 (720) 202-4562 | liammulh@gmail.com | liammulh.net | Palo Alto, CA
 
 ## Experience
 
@@ -35,3 +35,8 @@ May 2022 - May 2023 | Boulder, CO
 - Minored in computer science.
 - Took Data Structures, Computer Systems, and Algorithms.
   
+## Skills
+
+- Programming Languages: C, C++, Go, Java
+- Scripting Languages: Bash, JavaScript, TypeScript, Python
+- Other: CSS, HTML, LaTeX, NoSQL, SQL

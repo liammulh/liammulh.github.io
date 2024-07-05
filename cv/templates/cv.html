@@ -12,6 +12,7 @@
             <div>
                 {{ cv.basic_info.phone }}
                 | {{ cv.basic_info.email }}
+                | {{ cv.basic_info.website }}
                 | {{ cv.basic_info.location }}
             </div>
         <h2>Experience</h2>
@@ -34,5 +35,11 @@
             {%- endfor %}
         </ul>
         {% endfor -%}
+        <h2>Skills</h2>
+        <ul>
+            <li>Programming Languages: {{ cv.skills.programming_languages }}</li>
+            <li>Scripting Languages: {{ cv.skills.scripting_languages }}</li>
+            <li>Other: {{ cv.skills.other }}</li>
+        </ul>
     </body>
 </html>

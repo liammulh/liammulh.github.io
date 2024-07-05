@@ -1,6 +1,6 @@
 # {{ cv.basic_info.name }}
 
-{{ cv.basic_info.phone }} | {{ cv.basic_info.email }} | {{ cv.basic_info.location }}
+{{ cv.basic_info.phone }} | {{ cv.basic_info.email }} | {{ cv.basic_info.website }} | {{ cv.basic_info.location }}
 
 ## Experience
 {% for exp in cv.experience %}
@@ -22,3 +22,8 @@
 - {{ note }}
 {% endfor %} {# End notes loop. #}
 {%- endfor %} {# End experience loop. #}
+## Skills
+
+- Programming Languages: {{ cv.skills.programming_languages }}
+- Scripting Languages: {{ cv.skills.scripting_languages }}
+- Other: {{ cv.skills.other }}

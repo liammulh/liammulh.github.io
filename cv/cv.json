@@ -3,6 +3,7 @@
     "name": "Liam Mulhall",
     "phone": "+1 (720) 202-4562",
     "email": "liammulh@gmail.com",
+    "website": "liammulh.net",
     "location": "Palo Alto, CA"
   },
   "experience": [
@@ -51,5 +52,10 @@
         "Took Data Structures, Computer Systems, and Algorithms."
       ]
     }
-  ]
+  ],
+  "skills": {
+    "programming_languages": "C, C++, Go, Java",
+    "scripting_languages": "Bash, JavaScript, TypeScript, Python",
+    "other": "CSS, HTML, LaTeX, NoSQL, SQL"
+  }
 }
