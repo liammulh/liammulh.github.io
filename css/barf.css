@@ -1,6 +1,12 @@
+/* Set the default font color and background color. */
+html {
+    color: #586e75;
+    background-color: #fdf6e3;
+}
+
 /* Make HTML look reasonable on most screens. */
 .reasonable {
-    font-family: "Georgia", "Palatino", "Times", "Roman", serif;
+    font-family: "Athelas", "STHeiti", "Microsoft Yahei", serif;
     font-size: 1.25em;
     line-height: 1.75;
     margin: auto;
@@ -10,12 +16,13 @@
 
 /* Make link styling boring. */
 a {
-    color: blue;
+    color: #dc322f;
+    text-decoration: none;
 }
 
 /* Visited links should look the same as unvisited links. */
-a:visited {
-    color: blue;
+a:hover {
+    text-decoration: underline;
 }
 
 /* An llvm.org-style heading. */
@@ -30,18 +37,6 @@ a:visited {
 .subheading {
     font-size: 1em;
     text-align: center;
-}
-
-/* Show the top of an IBM 701 computer program punch card. */
-#punch-card-top {
-    background: url("../img/ibm-701-punch-card-top-800w.jpg") no-repeat center;
-    height: 100px;
-}
-
-/* Show the bottom of an IBM 701 computer program punch card. */
-#punch-card-bottom {
-    background: url("../img/ibm-701-punch-card-bottom-800w.jpg") no-repeat center;
-    height: 41px;
 }
 
 /* If screen isn't too narrow, float the picture of me to the right. */
